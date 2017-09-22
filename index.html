@@ -6,7 +6,8 @@
 	<base href="/">
 	<link rel="icon" type="image/x-icon" href="/images/blue_stars.png">
 	<!-- jquery -->
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
 
 	<!-- tetherjs for bootstrap -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -29,25 +30,44 @@
 	<title ng-bind=" 'Oliver Shi' + pageTitle"></title>
 </head>
 <body>
-	<nav class="navbar navbar-toggleable navbar-dark" style="background-color: rgb(246,244,245);">
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	<nav class="navbar navbar-toggleable navbar-light fixed-top main-nav" style="background-color: rgb(240,235,230);">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>	
-		<a class="navbar-brand" href="/" style="font-size:25px; color:black; font-family:Century Gothic, sans-serif;">Home</a>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="/piano" style="font-size:25px; color:black; font-family:Century Gothic, sans-serif;">Piano</a>
-				<a class="nav-item nav-link" href="/blod" style="font-size:25px; color:black; font-family:Century Gothic, sans-serif;">Blog</a>
-			</div>
+		<a class="navbar-brand main-nav-item scrollToTop" href="/" >Home</a>
+		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+			<ul class="navbar-nav">
+				<li><a class="nav-item nav-link main-nav-item" href="/piano">Piano</a></li>
+				<li><a class="nav-item nav-link main-nav-item" href="/blog"">Blog</a></li>
+				<li><a class="nav-item nav-link main-nav-item" href="/games">Games</a></li>
+			</ul>
 		</div>
 	</nav>
-	<p></p>
-	<div class="clearfix">
-		<div class="container-fluid" ng-view>
+	<br>
+	<br>
+	<div class="container-fluid clearfix ng-view">
+		<div ng-view>
 		</div><!-- # end .container-fluid -->
 	</div><!-- # end .page_content -->
 
 
+	<script>
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 400) {
+				$('.main-nav').addClass('shrink');
+				$('.main-nav-item').addClass('shrink');
+			} else {
+				$('.main-nav').removeClass('shrink');
+				$('.main-nav-item').removeClass('shrink');
+			}
+		});
+		$('.scrollToTop').click(function(){
+			if($(document).scrollTop() > 50 && window.location.pathname == "/"){
+				$("html, body").animate({ scrollTop: 0 }, 300);
+				return false;
+			}
+		});
+	</script>
 	<!-- main.js -->
 	<script src="oli.js"></script>
 </body>

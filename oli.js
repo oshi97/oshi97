@@ -7,13 +7,23 @@
 		$locationProvider.html5Mode(true);
 
 
-		$routeProvider.when(baseUrl, {
-			templateUrl: baseUrl + 'components/homepage.html',
+		$routeProvider
+		.when(baseUrl, {
+			templateUrl: baseUrl + 'homepage.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
 			}
+		})
+		.when(baseUrl + "piano", {
+			templateUrl: baseUrl + 'piano/piano.html',
+		})
+		.when(baseUrl + "blog",{
+			templateUrl: baseUrl + 'blog/blog.html',
+		})
+		.when(baseUrl + "games",{
+			templateUrl: baseUrl + 'games/games.html',
 		});
 	})
 }(window.angular))

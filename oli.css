@@ -1,0 +1,27 @@
+body{
+	/*background-color: #eee7d4;*/
+	background-color:  #FFFFFF;
+	font-family:system-ui;
+	overflow-y:auto;
+}
+.ng-view{
+	margin-top:20px;
+}
+.main-nav-item{
+	font-size:20px; 
+	color:black;
+	font-family:Century Gothic, sans-serif;
+}
+
+.main-nav.shrink {
+  max-height: 28px;
+}
+.main-nav-item.shrink{
+	font-size:12px;
+}
+
+.main-nav{
+  background-color:#ccc;
+   -webkit-transition: all 4s ease;
+   transition: all 4s ease;
+}
