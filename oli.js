@@ -17,13 +17,13 @@
 			}
 		})
 		.when(baseUrl + "piano", {
-			templateUrl: baseUrl + 'piano/piano.html',
+			templateUrl: baseUrl + 'views/piano/piano.html',
 		})
 		.when(baseUrl + "blog",{
-			templateUrl: baseUrl + 'blog/blog.html',
+			templateUrl: baseUrl + 'views/blog/blog.html',
 		})
 		.when(baseUrl + "games",{
-			templateUrl: baseUrl + 'games/games.html',
+			templateUrl: baseUrl + 'views/games/games.html',
 		});
 	})
 }(window.angular))
