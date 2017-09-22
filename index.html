@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Oli">
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<base href="/">
+	<link rel="icon" type="image/x-icon" href="/images/blue_stars.png">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+	<!-- tetherjs for bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<!-- bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<!-- Scrollmagic -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+
+	<!-- angularjs -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+	<!-- my css -->
+	<link rel="stylesheet" href="oli.css">
+
+	<title ng-bind=" 'Oli' + pageTitle"></title>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-faded">
+		<a class="navbar-brand" href="#">Home</a>
+	</nav>
+	
+	<div class="clearfix">
+		<div class="container-fluid" ng-view>
+		</div><!-- # end .container-fluid -->
+	</div><!-- # end .page_content -->
+
+
+	<!-- main.js -->
+	<script src="oli.js"></script>
+</body>
+</html>
