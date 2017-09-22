@@ -24,6 +24,7 @@
 		})
 		.when(baseUrl + "games",{
 			templateUrl: baseUrl + 'views/games/games.html',
-		});
-	})
+		})
+		.otherwise({ redirectTo : baseUrl});
+	});
 }(window.angular))
