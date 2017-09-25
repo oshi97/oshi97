@@ -16,14 +16,8 @@
 				$rootScope.pageTitle = ' - Home';
 			}
 		})
-		.when(baseUrl + "piano", {
-			templateUrl: baseUrl + 'views/piano/piano.html',
-		})
-		.when(baseUrl + "blog",{
-			templateUrl: baseUrl + 'views/blog/blog.html',
-		})
-		.when(baseUrl + "games",{
-			templateUrl: baseUrl + 'views/games/games.html',
+		.when(baseUrl + "ramblings", {
+			templateUrl: baseUrl + 'views/ramblings/ramblings.html',
 		})
 		.otherwise({ redirectTo : baseUrl});
 	});
