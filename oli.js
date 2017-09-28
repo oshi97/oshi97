@@ -14,21 +14,26 @@
 			controller: function($rootScope){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
-
+				//Scroll Magic
 				var controller = new ScrollMagic.Controller();
 
 				for(var i = 1; i<8; i++){
 					console.log('#home-scene-'+i)
 					var scene = new ScrollMagic.Scene({
 						triggerElement: '#home-scene-'+i,
-						offset: 100,
-						duration: 500,
+						offset: 50,
+						duration: 1000,
 						triggerHook: 0,
 						reverse: true
 					})
 					.setPin('#home-scene-'+i)
 					.addTo(controller);
 				}
+				//HowlerJS
+				var homeMusic = new Howl({
+					src: ['/music/Newbie Melody (Old Music).mp3']
+				});
+				homeMusic.play();
 			}
 		})
 		.when(baseUrl + "ramblings", {
