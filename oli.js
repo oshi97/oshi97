@@ -14,11 +14,51 @@
 			controller: function($rootScope){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
+
+				var controller = new ScrollMagic.Controller();
+
+				for(var i = 1; i<8; i++){
+					console.log('#home-scene-'+i)
+					var scene = new ScrollMagic.Scene({
+						triggerElement: '#home-scene-'+i,
+						offset: 100,
+						duration: 500,
+						triggerHook: 0,
+						reverse: true
+					})
+					.setPin('#home-scene-'+i)
+					.addTo(controller);
+				}
 			}
 		})
 		.when(baseUrl + "ramblings", {
 			templateUrl: baseUrl + 'views/ramblings/ramblings.html',
+			controllerAs: 'ctrl',
+			controller: function($rootScope){
+				var ctrl= this;
+				$rootScope.pageTitle = ' - I\'m Crazy!';
+
+				var controller = new ScrollMagic.Controller();
+
+				var scene1 = new ScrollMagic.Scene({
+					triggerElement: "#pinned-trigger1",
+					duration: $(window).height() - 100, 
+					triggerHook: 0, 
+					reverse: true 
+				})
+				.setPin("#pinned-element1") 
+				.addTo(controller);
+
+
+				var scene2 = new ScrollMagic.Scene({
+					triggerElement: "#pinned-trigger2",
+					duration: 1500
+				}).setPin("#pinned-element2")
+				.addTo(controller);
+			}
 		})
-		.otherwise({ redirectTo : baseUrl});
+		.otherwise({ 
+			redirectTo : baseUrl
+		});
 	});
 }(window.angular))
