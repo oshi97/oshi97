@@ -19,11 +19,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
 	<!-- bootstrap js -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 	<!-- Scrollmagic -->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js" integrity="sha256-xaGvP1a0KUJS18dRRK6dCsGY6SKZUrfhHLsx8X8TgSM=" crossorigin="anonymous"></script>
 
 	<!-- HowlerJS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
@@ -53,7 +57,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>	
 		<a class="navbar-brand main-nav-item scrollToTop" href="/" >Home</a>
-		<img ng-show="isPlaying" class="music-player" src="/images/music_player/pause.png" width="30px" height="30px" ng-click="pauseMusic()">
+		<img ng-show="isPlaying" class="form-inline music-player" src="/images/music_player/pause.png" width="30px" height="30px" ng-click="pauseMusic()">
 		<img ng-show="!isPlaying" class="music-player" src="/images/music_player/play.png" width="30px" height="30px" ng-click="playMusic()">
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
 			<ul class="navbar-nav">
@@ -64,9 +68,7 @@
 			</ul>
 		</div>
 	</nav>
-	<br>
-	<br>
-	<br>
+
 	<div class="container-fluid clearfix">
 		<div ng-view>
 		</div><!-- # end .container-fluid -->
@@ -74,15 +76,15 @@
 
 
 	<script>
-		$(window).scroll(function() {
-			if ($(document).scrollTop() > 400) {
-				$('.main-nav').addClass('shrink');
-				$('.main-nav-item').addClass('shrink');
-			} else {
-				$('.main-nav').removeClass('shrink');
-				$('.main-nav-item').removeClass('shrink');
-			}
-		});
+		// $(window).scroll(function() {
+		// 	if ($(document).scrollTop() > 400) {
+		// 		$('.main-nav').addClass('shrink');
+		// 		$('.main-nav-item').addClass('shrink');
+		// 	} else {
+		// 		$('.main-nav').removeClass('shrink');
+		// 		$('.main-nav-item').removeClass('shrink');
+		// 	}
+		// });
 		$('.scrollToTop').click(function(){
 			if($(document).scrollTop() > 50 && window.location.pathname == "/"){
 				$("html, body").animate({ scrollTop: 0 }, 300);
