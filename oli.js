@@ -6,7 +6,6 @@
 
 		$locationProvider.html5Mode(true);
 
-
 		$routeProvider
 		.when(baseUrl, {
 			templateUrl: baseUrl + 'homepage.html',
@@ -14,11 +13,11 @@
 			controller: function($rootScope){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
+				ctrl.imageDirectory = "/images"
 				//Scroll Magic
 				var controller = new ScrollMagic.Controller();
 
 				for(var i = 1; i<8; i++){
-					console.log('#home-scene-'+i)
 					var scene = new ScrollMagic.Scene({
 						triggerElement: '#home-scene-'+i,
 						offset: 50,
@@ -61,5 +60,37 @@
 		.otherwise({ 
 			redirectTo : baseUrl
 		});
+	});
+
+	oli.run(function($rootScope, $log){
+		//This would be better as a component, but that will come later
+		var musicVolume = 0.25;
+		$rootScope.isPlaying = true;
+		var homeMusic = new Howl({
+			src: ['/music/Newbie Melody (Old Music).mp3'],
+			volume: musicVolume,
+			loop: true,
+			html5: true,
+			autoplay: true,
+		});
+
+		$rootScope.pauseMusic = function(){
+			if(homeMusic.playing()){
+				// homeMusic.once('fade', homeMusic.pause());
+				// the above should work but cuts off nastily, probably some bug
+				homeMusic.fade(musicVolume,0.0,0.5);
+				window.setTimeout(function(){homeMusic.pause();},300);
+				$rootScope.isPlaying = false
+			}
+		};
+
+		$rootScope.playMusic = function(){
+			if(!homeMusic.playing()){
+				homeMusic.once('fade', homeMusic.play());
+				homeMusic.fade(0.0,musicVolume,0.5);
+				// homeMusic.play();
+				$rootScope.isPlaying = true;
+			}
+		};
 	});
 }(window.angular))

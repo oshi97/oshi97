@@ -53,6 +53,8 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>	
 		<a class="navbar-brand main-nav-item scrollToTop" href="/" >Home</a>
+		<img ng-show="isPlaying" class="music-player" src="/images/music_player/pause.png" width="30px" height="30px" ng-click="pauseMusic()">
+		<img ng-show="!isPlaying" class="music-player" src="/images/music_player/play.png" width="30px" height="30px" ng-click="playMusic()">
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
 			<ul class="navbar-nav">
 				<li><a class="nav-item nav-link main-nav-item" href="/ramblings">Ramblings</a></li>
@@ -72,11 +74,6 @@
 
 
 	<script>
-		//HowlerJS
-		var homeMusic = new Howl({
-			src: ['/music/Newbie Melody (Old Music).mp3']
-		});
-		homeMusic.play();
 		$(window).scroll(function() {
 			if ($(document).scrollTop() > 400) {
 				$('.main-nav').addClass('shrink');
