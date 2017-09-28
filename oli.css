@@ -1,4 +1,4 @@
-body{
+#override-bootstrap, body{
 	/*background-color: #eee7d4;*/
 	background-color:  #FFFFFF;
 	font-family:system-ui;
@@ -12,6 +12,10 @@ body{
 	color:black;
 	font-family:Century Gothic, sans-serif;
 }
+ #override-bootstrap .main-nav-item:hover{
+	color:#1a8cff !important;
+}
+
 .main-nav{
 	max-height:50px;
 }
@@ -34,11 +38,15 @@ body{
 
 .home-scene{
 	border:solid black;
-	/*height:200px;*/
+	height:100vh-20px;
+	top:20px;
 	/*overflow:scroll;*/
 }
 
-img{
-	max-width:100%;
-	max-height: 100%;
+.home-img{
+	height:auto;
+	width:auto;
+	max-width:400px;
+	max-height:300px;
 }
+

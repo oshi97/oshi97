@@ -10,31 +10,27 @@
 		.when(baseUrl, {
 			templateUrl: baseUrl + 'homepage.html',
 			controllerAs: 'ctrl',
-			controller: function($rootScope){
+			controller: function($rootScope, $log){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
 				ctrl.imageDirectory = "/images"
 				//Scroll Magic
-				var controller = new ScrollMagic.Controller();
-
-				// var tween = TweenMax.to('#animation', 0.5, {
-				// 	backgroundColor: 'rgb(255, 39, 46)',
-				// 	scale: 7,
-				// 	rotation: 360
-				// });
+				ctrl.scrollController = new ScrollMagic.Controller();
 
 				for(var i = 1; i<8; i++){
 					var scene = new ScrollMagic.Scene({
 						triggerElement: '#home-scene-'+i,
 						offset: 330,
 						duration: 3000,
-						// triggerHook: 0,
 						reverse: true	
 					})
 					.setPin('#home-scene-'+i)
-					// .setTween(tween)
-					.addTo(controller);
+					.addTo(ctrl.scrollController);
 				}
+				ctrl.poop = function(){
+					$log.log(ctrl.scrollController.info());
+					$log.log(ctrl.scrollController.enabled());
+				};
 
 			}
 		})

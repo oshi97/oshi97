@@ -51,12 +51,15 @@
 		gtag('config', 'UA-93236516-3');
 	</script>
 </head>
-<body>
+<body id="override-bootstrap">
 	<nav class="navbar navbar-toggleable navbar-light fixed-top main-nav" style="background-color: rgb(240,235,230);">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>	
-		<a class="navbar-brand main-nav-item scrollToTop" href="/" >Home</a>
+		<a class="navbar-brand main-nav-item scrollToTop" href="/" >
+			<i class="fa fa-home navbar-icon" aria-hidden="true"></i>
+			<span>Home</span>
+		</a>
 		<img ng-show="isPlaying" class="form-inline music-player" src="/images/music_player/pause.png" width="30px" height="30px" ng-click="pauseMusic()">
 		<img ng-show="!isPlaying" class="music-player" src="/images/music_player/play.png" width="30px" height="30px" ng-click="playMusic()">
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
@@ -71,7 +74,7 @@
 
 	<div class="container-fluid clearfix">
 		<div ng-view>
-		</div><!-- # end .container-fluid -->
+		</div><!-- # end .container-fluid -->	
 	</div><!-- # end .page_content -->
 
 
