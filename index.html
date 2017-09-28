@@ -72,6 +72,11 @@
 
 
 	<script>
+		//HowlerJS
+		var homeMusic = new Howl({
+			src: ['/music/Newbie Melody (Old Music).mp3']
+		});
+		homeMusic.play();
 		$(window).scroll(function() {
 			if ($(document).scrollTop() > 400) {
 				$('.main-nav').addClass('shrink');

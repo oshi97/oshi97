@@ -29,11 +29,7 @@
 					.setPin('#home-scene-'+i)
 					.addTo(controller);
 				}
-				//HowlerJS
-				var homeMusic = new Howl({
-					src: ['/music/Newbie Melody (Old Music).mp3']
-				});
-				homeMusic.play();
+
 			}
 		})
 		.when(baseUrl + "ramblings", {
