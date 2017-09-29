@@ -14,23 +14,6 @@
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
 				ctrl.imageDirectory = "/images"
-				//Scroll Magic
-				ctrl.scrollController = new ScrollMagic.Controller();
-
-				for(var i = 1; i<8; i++){
-					var scene = new ScrollMagic.Scene({
-						triggerElement: '#home-scene-'+i,
-						offset: 330,
-						duration: 3000,
-						reverse: true	
-					})
-					.setPin('#home-scene-'+i)
-					.addTo(ctrl.scrollController);
-				}
-				ctrl.poop = function(){
-					$log.log(ctrl.scrollController.info());
-					$log.log(ctrl.scrollController.enabled());
-				};
 
 			}
 		})
@@ -41,23 +24,6 @@
 				var ctrl= this;
 				$rootScope.pageTitle = ' - I\'m Crazy!';
 
-				var controller = new ScrollMagic.Controller();
-
-				var scene1 = new ScrollMagic.Scene({
-					triggerElement: "#pinned-trigger1",
-					duration: $(window).height() - 100, 
-					triggerHook: 0, 
-					reverse: true 
-				})
-				.setPin("#pinned-element1") 
-				.addTo(controller);
-
-
-				var scene2 = new ScrollMagic.Scene({
-					triggerElement: "#pinned-trigger2",
-					duration: 1500
-				}).setPin("#pinned-element2")
-				.addTo(controller);
 			}
 		})
 		.otherwise({ 
@@ -67,14 +33,14 @@
 
 	oli.run(function($rootScope, $log){
 		//This would be better as a component, but that will come later
-		var musicVolume = 0.25;
-		$rootScope.isPlaying = true;
+		var musicVolume = 0.8;
+		$rootScope.isPlaying = false;
 		var homeMusic = new Howl({
 			src: ['/music/Newbie Melody (Old Music).mp3'],
 			volume: musicVolume,
 			loop: true,
 			html5: true,
-			autoplay: true,
+			autoplay: false,
 		});
 
 		$rootScope.pauseMusic = function(){

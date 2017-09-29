@@ -8,38 +8,41 @@
 	margin-top:20px;
 }
 .main-nav-item{
-	font-size:20px; 
+	font-size:24px; 
 	color:black;
 	font-family:Century Gothic, sans-serif;
 }
- #override-bootstrap .main-nav-item:hover{
-	color:#1a8cff !important;
+#override-bootstrap .main-nav-item:hover{
+	color:#1a8cff;
 }
 
 .main-nav{
-	max-height:50px;
+	max-height:55px;
 }
 .main-nav.shrink {
-  max-height: 28px;
+	max-height: 28px;
 }
 .main-nav-item.shrink{
 	font-size:12px;
 }
 
 .main-nav{
-  background-color:#ccc;
-   -webkit-transition: all .2s ease;
-   transition: all .2s ease;
+	background-color:#ccc;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
 }
-
+.music-player:hover::before{
+	color:green;
+}
 .music-player:hover{
-	cursor: pointer;
+	cursor: pointer; 
 }
 
 .home-scene{
 	border:solid black;
-	height:100vh-20px;
+	height:88vh;
 	top:20px;
+	position:relative;
 	/*overflow:scroll;*/
 }
 
@@ -50,3 +53,25 @@
 	max-height:300px;
 }
 
+.home-left{
+	width:100px;
+	float:left;
+	border:solid blue;
+
+	height: -webkit-calc(100% - 80px);
+	height:    -moz-calc(100% - 80px);
+	height:         calc(100% - 80px);
+
+	position:fixed;
+	left:10px;
+	top:67px;
+	overflow-wrap: break-word;
+}
+
+.home-right{
+	float:right;
+	width: -webkit-calc(100% - 100px);
+	width:    -moz-calc(100% - 100px);
+	width:         calc(100% - 100px);
+	border:solid red;
+}

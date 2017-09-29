@@ -60,8 +60,8 @@
 			<i class="fa fa-home navbar-icon" aria-hidden="true"></i>
 			<span>Home</span>
 		</a>
-		<img ng-show="isPlaying" class="form-inline music-player" src="/images/music_player/pause.png" width="30px" height="30px" ng-click="pauseMusic()">
-		<img ng-show="!isPlaying" class="music-player" src="/images/music_player/play.png" width="30px" height="30px" ng-click="playMusic()">
+		<i ng-show="isPlaying" class="fa fa-pause fa-2x music-player" aria-hidden="true" ng-click="pauseMusic()"></i>
+		<i ng-show="!isPlaying" class="fa fa-play-circle-o fa-2x music-player" aria-hidden="true" ng-click="playMusic()"></i>
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
 			<ul class="navbar-nav">
 				<li><a class="nav-item nav-link main-nav-item" href="/ramblings">Ramblings</a></li>
