@@ -1,0 +1,37 @@
+
+.about-scene{
+	/*border:solid black;*/
+	height:88vh;
+	position:relative;
+	/*overflow:scroll;*/
+}
+
+.about-img{
+	height:auto;
+	width:auto;
+	max-width:400px;
+	max-height:300px;
+}
+
+.about-left{
+	width:100px;
+	float:left;
+	border:solid blue;
+
+	height: -webkit-calc(100% - 80px);
+	height:    -moz-calc(100% - 80px);
+	height:         calc(100% - 80px);
+
+	position:fixed;
+	left:10px;
+	top:70px;
+	overflow-wrap: break-word;
+}
+
+.about-right{
+	float:right;
+	width: -webkit-calc(100% - 100px);
+	width:    -moz-calc(100% - 100px);
+	width:         calc(100% - 100px);
+	border:solid red;
+}

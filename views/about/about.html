@@ -4,67 +4,77 @@
 
 	for(var i = 1; i<8; i++){
 		var scene = new ScrollMagic.Scene({
-			triggerElement: '#home-scene-'+i,
+			triggerElement: '#about-scene-'+i,
 			offset: 300,
 			duration: 2000,
 			reverse: true	
 		})
-		.setPin('#home-scene-'+i)
+		.setPin('#about-scene-'+i)
 		.addTo(scrollController);
 	}
-</script><div class="home-left">This will become a sidebar</div>
-<div class="home-right">
-	<div class="home-scene" id="home-scene-1">
+</script><div class="about-left">This will become a sidebar</div>
+<link rel="stylesheet" href="/views/about/about.css">
+<div class="about-right">
+	
+	<div class="about-scene" id="about-scene-1">
 		<p>
-			Helo this is the about page
+			Hi this is still a mess
+		</p> 
+		<p>
+			You can check out my progress on my github at 
+			<a href="http://github.com/oshi97/oshi97" target="_blank">github.com/oshi97/oshi97</a>! 
 		</p>
-		<img class="home-img" src="{{ctrl.imageDirectory}}/me.jpg" height="500px" width = "500px">
+		<p>
+			Also my <a href="/resume.pdf" target="_blank">Current Resume</a> 
+		</p>
+		<img class="about-img" src="/images/me.jpg" height="500px" width = "500px">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/me.jpg" height="500px" width = "500px">
 	</div>
 
-	<div class="home-scene" id="home-scene-2">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/hearthstone.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/gwent.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/witcher3.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/overwatch.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/melee.jpg">
+	<div class="about-scene" id="about-scene-2">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/hearthstone.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/gwent.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/witcher3.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/overwatch.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/melee.jpg">
 	</div>	 
-	<div class="home-scene" id="home-scene-3">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/liszt.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/beethoven.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/rachmaninoff.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/langlang.jpg">
+	<div class="about-scene" id="about-scene-3">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/liszt.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/beethoven.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/rachmaninoff.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/langlang.jpg">
 	</div>
-	<div class="home-scene" id="home-scene-4">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/crew1.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/crew2.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/crew3.jpg">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/ginobili.jpg">
+	<div class="about-scene" id="about-scene-4">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew1.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew2.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew3.jpg">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/ginobili.jpg">
 	</div>
-	<div class="home-scene" id="home-scene-5">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/aol.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/yahoo.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/oath.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/angularjs.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/angular2.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/jenkins.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/git.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/bitbucket.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/confluence.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/jira.png">
+	<div class="about-scene" id="about-scene-5">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aol.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/yahoo.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/oath.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/angularjs.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/angular2.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/jenkins.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/git.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/bitbucket.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/confluence.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/jira.png">
 	</div>
-	<div class="home-scene" id="home-scene-6">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/unity.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/webdev.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/aws.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/aws-ec2.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/godaddy.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/aws-route53.png">
+	<div class="about-scene" id="about-scene-6">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/unity.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/webdev.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws-ec2.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/godaddy.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws-route53.png">
 	</div>
-	<div class="home-scene" id="home-scene-7">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/uva.png">
-		<img class="home-img" src="{{ctrl.imageDirectory}}/tjhsst.jpeg">
+	<div class="about-scene" id="about-scene-7">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/uva.png">
+		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/tjhsst.jpeg">
 	</div>
 </div>
-<!-- 	<div class="home-scene" id="home-scene-{{k}}" ng-repeat="(k,v) in ctrl.scenes track by $index">
-		<img class="home-img" ng-repeat="imageName in ctrl.scenes[k] track by $index" ng-src="{{ctrl.imageDirectory}}/{{imageName}}">
+<!-- 	<div class="about-scene" id="home-scene-{{k}}" ng-repeat="(k,v) in ctrl.scenes track by $index">
+		<img class="about-img" ng-repeat="imageName in ctrl.scenes[k] track by $index" ng-ng-src="{{ctrl.imageDirectory}}/{{imageName}}">
 	</div> -->

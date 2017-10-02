@@ -1,0 +1,36 @@
+.flex-container {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: 50%;
+	/*border:solid blue;*/
+	justify-content: center;
+	flex-direction: row;
+}
+.flex-item {
+	background-color: cornflowerblue;
+	min-width: 300px;
+	max-width: 330px;
+	min-height: 300px;
+	max-height: 330px;
+	flex-grow: 1;
+	border:solid lightblue;
+}
+.flex-item img:hover{
+ 	opacity:0.1;
+}
+.flex-item img{
+	min-width: 300px;
+	max-width: 330px;
+	min-height: 300px;
+	max-height: 330px;
+	/*width:100%;*/
+	/*height:100%;*/
+    position: relative;
+ 	opacity:0.9;
+}
+.flex-container a{
+	display:block;
+	margin: 10px;
+}

@@ -62,21 +62,20 @@
 		</a>
 		<i ng-show="isPlaying" class="fa fa-pause fa-2x green-hover" aria-hidden="true" ng-click="pauseMusic()"></i>
 		<i ng-show="!isPlaying" class="fa fa-play-circle-o fa-2x green-hover" aria-hidden="true" ng-click="playMusic()"></i>
+		<span style="padding-left: 10px;">music</span>
 		<i class="fa fa-long-arrow-up fa-3x scrollToTop green-hover" aria-hidden="true"></i>
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
 			<ul class="navbar-nav">
 				<li><a class="nav-item nav-link main-nav-item" href="/about">About</a></li>
 				<li><a class="nav-item nav-link main-nav-item" href="/mebot">MeBot</a></li>
+				<li><a class="nav-item nav-link main-nav-item" href="/blog">Blog</a></li>
 			</ul>
 		</div>
 	</nav>
-	<br>
-	<br>
-	<br>
-	<div class="container-fluid clearfix">
+	<div class="container-fluid clearfix ng-view">
 		<div ng-view>
-		</div><!-- # end .container-fluid -->	
-	</div><!-- # end .page_content -->
+		</div>	
+	</div>
 
 
 	<script>

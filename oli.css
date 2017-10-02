@@ -4,8 +4,16 @@
 	font-family:system-ui;
 	overflow-y:auto;
 }
+
 .ng-view{
-	margin-top:20px;
+	margin-top:65px;
+	height: -webkit-calc(100vh - 80px);
+	height:    -moz-calc(100vh - 80px);
+	height:         calc(100vh - 80px);
+	/*border:solid orange;*/
+	padding:0px;
+	margin-left: 25px;
+	margin-right: 25px;
 }
 .main-nav-item{
 	font-size:24px; 
@@ -39,39 +47,3 @@
 	color:green;
 }
 
-.home-scene{
-	border:solid black;
-	height:88vh;
-	position:relative;
-	/*overflow:scroll;*/
-}
-
-.home-img{
-	height:auto;
-	width:auto;
-	max-width:400px;
-	max-height:300px;
-}
-
-.home-left{
-	width:100px;
-	float:left;
-	border:solid blue;
-
-	height: -webkit-calc(100% - 80px);
-	height:    -moz-calc(100% - 80px);
-	height:         calc(100% - 80px);
-
-	position:fixed;
-	left:10px;
-	top:70px;
-	overflow-wrap: break-word;
-}
-
-.home-right{
-	float:right;
-	width: -webkit-calc(100% - 100px);
-	width:    -moz-calc(100% - 100px);
-	width:         calc(100% - 100px);
-	border:solid red;
-}

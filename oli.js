@@ -8,7 +8,7 @@
 
 		$routeProvider
 		.when(baseUrl, {
-			templateUrl: 'homepage.html',
+			templateUrl: 'views/homepage/homepage.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope, $log){
 				$rootScope.pageTitle = ' - Home'
@@ -42,6 +42,15 @@
 
 			}
 		})
+		.when(baseUrl + "blog", {
+			templateUrl: baseUrl + 'views/blog/blog.html',
+			controllerAs: 'ctrl',
+			controller: function($rootScope){
+				var ctrl= this;
+				$rootScope.pageTitle = ' - I\'m Crazy!';
+
+			}
+		})
 		.otherwise({ 
 			redirectTo : baseUrl
 		});
@@ -49,14 +58,14 @@
 
 	oli.run(function($rootScope, $log){
 		//This would be better as a component, but that will come later
-		var musicVolume = 0.8;
+		var musicVolume = 1.0
 		$rootScope.isPlaying = false;
 		var homeMusic = new Howl({
 			src: ['/music/Newbie Melody (Old Music).mp3'],
 			volume: musicVolume,
 			loop: true,
 			html5: true,
-			autoplay: false,
+			autoplay: $rootScope.isPlaying,
 		});
 
 		$rootScope.pauseMusic = function(){
