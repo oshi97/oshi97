@@ -1,0 +1,43 @@
+
+.animated {
+  animation-fill-mode: both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  30%{
+    opacity:.75;
+  }
+  50%{
+    opacity: .90;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.appear {
+  animation-name: appear;
+  animation-duration: 0.33s;
+}
+
+@keyframes inFromLeft {
+  from {
+    /*opacity: 0.5;*/
+    transform: translate3d(-100%, 0, 0);
+  }
+  50%{
+    transform: translate3d(-75%,0,0);
+  }
+  to {
+    /*opacity: 1;*/
+    transform: none;
+  }
+}
+
+.inFromLeft {
+  animation-name: inFromLeft;
+  animation-duration: 0.3s;
+}
