@@ -7,10 +7,13 @@
   from {
     opacity: 0;
   }
-  30%{
-    opacity:.75;
+  25%{
+    opacity:.70;
   }
-  50%{
+  35%{
+    opacity:.80;
+  }
+  45%{
     opacity: .90;
   }
   to {
@@ -20,7 +23,7 @@
 
 .appear {
   animation-name: appear;
-  animation-duration: 0.33s;
+  animation-duration: 0.35s;
 }
 
 @keyframes inFromLeft {

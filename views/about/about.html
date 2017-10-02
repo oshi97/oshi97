@@ -1,79 +1,43 @@
-<script>
-	//Scroll Magic
-	var scrollController = new ScrollMagic.Controller();
-
-	for(var i = 1; i<8; i++){
-		var scene = new ScrollMagic.Scene({
-			triggerElement: '#about-scene-'+i,
-			offset: 300,
-			duration: 2000,
-			reverse: true	
-		})
-		.setPin('#about-scene-'+i)
-		.addTo(scrollController);
-	}
-</script><div class="about-left">This will become a sidebar</div>
 <link rel="stylesheet" href="/views/about/about.css">
-<div class="about-right">
-	<div class="about-scene" id="about-scene-1">
-		<p>
-			Hi this is still a mess
-		</p> 
-		<p>
-			You can check out my progress on my github at 
-			<a href="http://github.com/oshi97/oshi97" target="_blank">github.com/oshi97/oshi97</a>! 
-		</p>
-		<p>
-			Also my <a href="/resume.pdf" target="_blank">Current Resume</a> 
-		</p>
-		<img class="about-img" src="/images/me.jpg" height="500px" width = "500px">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/me.jpg" height="500px" width = "500px">
-	</div>
-
-	<div class="about-scene" id="about-scene-2">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/hearthstone.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/gwent.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/witcher3.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/overwatch.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/melee.jpg">
-	</div>	 
-	<div class="about-scene" id="about-scene-3">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/liszt.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/beethoven.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/rachmaninoff.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/langlang.jpg">
-	</div>
-	<div class="about-scene" id="about-scene-4">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew1.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew2.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/crew3.jpg">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/ginobili.jpg">
-	</div>
-	<div class="about-scene" id="about-scene-5">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aol.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/yahoo.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/oath.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/angularjs.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/angular2.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/jenkins.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/git.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/bitbucket.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/confluence.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/jira.png">
-	</div>
-	<div class="about-scene" id="about-scene-6">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/unity.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/webdev.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws-ec2.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/godaddy.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/aws-route53.png">
-	</div>
-	<div class="about-scene" id="about-scene-7">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/uva.png">
-		<img class="about-img" ng-src="{{ctrl.imageDirectory}}/tjhsst.jpeg">
-	</div>
+<div class="flex-container animated appear">
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/me.jpg')">
+		</div>
+		<div> Bio</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/under-construction.png')">
+		</div>
+		<div> Education </div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/under-construction.png')">
+		</div>
+		<div> Games!</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/code-for-food.jpg')">
+		</div>
+		<div> Piano</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/code-for-food.jpg')">
+		</div>
+		<div> Sports</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/code-for-food.jpg')">
+		</div>
+		<div> Piano</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/code-for-food.jpg')">
+		</div>
+		<div> Programming</div>
+	</a>
+	<a href="/about">
+		<div class="flex-item" style="background-image: url('/images/code-for-food.jpg')">
+		</div>
+		<div> This Site</div>
+	</a>
 </div>
-<!-- 	<div class="about-scene" id="home-scene-{{k}}" ng-repeat="(k,v) in ctrl.scenes track by $index">
-		<img class="about-img" ng-repeat="imageName in ctrl.scenes[k] track by $index" ng-ng-src="{{ctrl.imageDirectory}}/{{imageName}}">
-	</div> -->
