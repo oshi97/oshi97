@@ -31,17 +31,17 @@
 	-webkit-transition: all .2s ease;
 	transition: all .2s ease;
 }
-.music-player:hover::before{
-	color:green;
+.green-hover{
+	margin-left: 25%;
+	cursor:pointer;
 }
-.music-player:hover{
-	cursor: pointer; 
+.green-hover:hover::before{
+	color:green;
 }
 
 .home-scene{
 	border:solid black;
 	height:88vh;
-	top:20px;
 	position:relative;
 	/*overflow:scroll;*/
 }
@@ -64,7 +64,7 @@
 
 	position:fixed;
 	left:10px;
-	top:67px;
+	top:70px;
 	overflow-wrap: break-word;
 }
 

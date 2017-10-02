@@ -8,17 +8,33 @@
 
 		$routeProvider
 		.when(baseUrl, {
-			templateUrl: baseUrl + 'homepage.html',
+			templateUrl: 'homepage.html',
+			controllerAs: 'ctrl',
+			controller: function($rootScope, $log){
+				$rootScope.pageTitle = ' - Home'
+			}
+		})
+		.when(baseUrl + "about", {
+			templateUrl: baseUrl + 'views/about/about.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope, $log){
 				var ctrl = this;
-				$rootScope.pageTitle = ' - Home';
-				ctrl.imageDirectory = "/images"
-
+				$rootScope.pageTitle = ' - About';
+				ctrl.imageDirectory = "/views/about/images"
+				ctrl.scenes = {
+					1: ["hearthstone.png","gwent.png","witcher3.jpg","overwatch.png",
+					"melee.jpg"],
+					2: ["liszt.jpg","beethoven.jpg","rachmaninoff.jpg","langlang.jpg"],
+					3: ["crew1.jpg","crew2.jpg","crew3.jpg","ginobili.jpg"],
+					4: ["aol.png","yahoo.png","oath.png","angularjs.png","angular2.png",
+						"jenkins.png","git.png","bitbucket.png","confluence.png","jira.png"],
+					5: ["unity.png","webdev.png","aws.png","aws-ec2.png","godaddy.png","aws-route53.png"],
+					6: ["uva.png","tjhsst.jpeg"]
+				};
 			}
 		})
-		.when(baseUrl + "ramblings", {
-			templateUrl: baseUrl + 'views/ramblings/ramblings.html',
+		.when(baseUrl + "mebot", {
+			templateUrl: baseUrl + 'views/mebot/mebot.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope){
 				var ctrl= this;

@@ -1,16 +1,33 @@
-<br><br>
-<div class="container-fluid">
+<script>
+	//Scroll Magic
+	var scrollController = new ScrollMagic.Controller();
+
+	for(var i = 1; i<8; i++){
+		var scene = new ScrollMagic.Scene({
+			triggerElement: '#home-scene-'+i,
+			offset: 300,
+			duration: 2000,
+			reverse: true	
+		})
+		.setPin('#home-scene-'+i)
+		.addTo(scrollController);
+	}
+</script><div class="home-left">This will become a sidebar</div>
+<div class="home-right">
 	<div class="home-scene" id="home-scene-1">
-		Hi, please excuse the mess I'm currently working out my thoughts on how to tell my story. It's been a wonderful exercise in self-reflection. {{ctrl}}
+		<p>
+			Helo this is the about page
+		</p>
 		<img class="home-img" src="{{ctrl.imageDirectory}}/me.jpg" height="500px" width = "500px">
 	</div>
+
 	<div class="home-scene" id="home-scene-2">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/hearthstone.png">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/gwent.png">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/witcher3.jpg">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/overwatch.png">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/melee.jpg">
-	</div>
+	</div>	 
 	<div class="home-scene" id="home-scene-3">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/liszt.jpg">
 		<img class="home-img" src="{{ctrl.imageDirectory}}/beethoven.jpg">
@@ -48,4 +65,6 @@
 		<img class="home-img" src="{{ctrl.imageDirectory}}/tjhsst.jpeg">
 	</div>
 </div>
-
+<!-- 	<div class="home-scene" id="home-scene-{{k}}" ng-repeat="(k,v) in ctrl.scenes track by $index">
+		<img class="home-img" ng-repeat="imageName in ctrl.scenes[k] track by $index" ng-src="{{ctrl.imageDirectory}}/{{imageName}}">
+	</div> -->
