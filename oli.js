@@ -20,25 +20,15 @@
 			controller: function($rootScope, $log){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - About';
-				ctrl.imageDirectory = "/views/about/images"
-				ctrl.scenes = {
-					1: ["hearthstone.png","gwent.png","witcher3.jpg","overwatch.png",
-					"melee.jpg"],
-					2: ["liszt.jpg","beethoven.jpg","rachmaninoff.jpg","langlang.jpg"],
-					3: ["crew1.jpg","crew2.jpg","crew3.jpg","ginobili.jpg"],
-					4: ["aol.png","yahoo.png","oath.png","angularjs.png","angular2.png",
-						"jenkins.png","git.png","bitbucket.png","confluence.png","jira.png"],
-					5: ["unity.png","webdev.png","aws.png","aws-ec2.png","godaddy.png","aws-route53.png"],
-					6: ["uva.png","tjhsst.jpeg"]
-				};
+				// ctrl.imageDirectory = "/views/about/images"
 			}
 		})
-		.when(baseUrl + "mebot", {
-			templateUrl: baseUrl + 'views/mebot/mebot.html',
+		.when(baseUrl + "projects", {
+			templateUrl: baseUrl + 'views/projects/projects.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope){
 				var ctrl= this;
-				$rootScope.pageTitle = ' - I\'m Crazy!';
+				$rootScope.pageTitle = ' - Projects';
 
 			}
 		})
@@ -49,6 +39,26 @@
 				var ctrl= this;
 				$rootScope.pageTitle = ' - I\'m Crazy!';
 
+			}
+		})
+		.when(baseUrl + "about/:what", {
+			templateUrl: function(url){
+				return baseUrl + 'views/about/' + url.what + "/" + url.what + '.html';
+			},
+			controllerAs: 'ctrl',
+			controller: function($rootScope, $location){
+				var ctrl=this;
+				$rootScope.pageTitle = ' - About';
+			}
+		})
+		.when(baseUrl + "projects/:which", {
+			templateUrl: function(url){
+				return baseUrl + 'views/projects/' + url.which + "/" + url.which + '.html';
+			},
+			controllerAs: 'ctrl',
+			controller: function($rootScope){
+				var ctrl=this;
+				$rootScope.pageTitle = ' - Projects';
 			}
 		})
 		.otherwise({ 
@@ -86,5 +96,21 @@
 				$rootScope.isPlaying = true;
 			}
 		};
+		var currLink = $('#current-link-box');
+		$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
+			var dist,width;
+			$(".main-nav-item").each(function(){
+				if(window.location.href === this.href){
+					dist = $(this).offset().left - currLink.offset().left - 3;
+					width = parseInt($(this).css('width'))+6;
+				}
+			});
+			if(!dist){
+				return;
+			}
+			currLink.css('left',"+="+dist.toString());
+			currLink.css('width',width.toString()+"px");
+		});
+
 	});
 }(window.angular))
