@@ -23,8 +23,11 @@
 
 .flex-container a:hover{
 	text-decoration: none;
-	opacity: 0.6;
 	color:black;
+	border: solid #0a0472;
+}
+.flex-container a > *:hover{
+	opacity: 0.7;
 }
 
 .flex-item {
