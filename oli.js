@@ -82,31 +82,37 @@
 		//This would be better as a component, but that will come later
 		var musicVolume = 1.0
 		$rootScope.isPlaying = false;
+		var loadedHowler = false;
 		var homeMusic;
 
 		$rootScope.toggleMusic = function(){
-			if(!homeMusic){
-				console.log('loading music now');
-				homeMusic = new Howl({
-					src: ['/music/Newbie Melody (Old Music).mp3'],
-					volume: musicVolume,
-					loop: true,
-					html5: true,
-					autoplay: $rootScope.isPlaying,
+			if(!loadedHowler){
+				$rootScope.isPlaying = true;
+				$.getScript("/dependencies/howlerjs/howler.core.min.js", function(){
+					loadedHowler = true;
+					homeMusic = new Howl({
+						src: ['/music/Newbie Melody (Old Music).mp3'],
+						volume: musicVolume,
+						loop: true,
+						html5: true,
+						autoplay: true
+					});
 				});
+				return;
 			}
 			if($rootScope.isPlaying){
 				// homeMusic.once('fade', homeMusic.pause());
 				// the above should work but cuts off nastily, probably some bug
+				$rootScope.isPlaying = false
 				homeMusic.fade(musicVolume,0.0,0.4);
 				window.setTimeout(function(){homeMusic.pause();},300);
-				$rootScope.isPlaying = false
+
 			}
 			else {
+				$rootScope.isPlaying = true;
 				homeMusic.once('fade', homeMusic.play());
 				homeMusic.fade(0.0,musicVolume,0.4);
 				// homeMusic.play();
-				$rootScope.isPlaying = true;
 			}
 		}
 
