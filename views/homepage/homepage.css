@@ -1,0 +1,19 @@
+.home-container{
+	padding-top: 60px;
+}
+
+.logo-link{
+	margin:auto;
+	/*border:solid brown;*/
+	border-radius: 200px;
+	max-height:120px;
+	max-width:120px;
+}
+
+.col{
+	/*border: solid black;*/
+}
+
+.row{
+	/*border:solid blue;*/
+}

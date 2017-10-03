@@ -41,7 +41,8 @@
 	margin: 0;
 	/*border:solid green;*/
 }
-.flex-item + div{
+
+.flex-item + div, .flex-item-text{
 	text-align:center;
 	width:100%;
 	color: black;
