@@ -5,7 +5,7 @@
 	overflow-y:auto;
 }
 
-.ng-view{
+.my-ng-view{
 	margin-top:65px;
 	height: -webkit-calc(100vh - 80px);
 	height:    -moz-calc(100vh - 80px);
@@ -40,13 +40,6 @@
 	-webkit-transition: all .2s ease;
 	transition: all .2s ease;
 }
-.green-hover{
-	margin-left: 25%;
-	cursor:pointer;
-}
-.green-hover:hover::before{
-	color:green;
-}
 
 #current-link-box{
 	border-radius: 0px;
@@ -59,4 +52,27 @@
 	z-index: -1;
 	-webkit-transition: width 0.25s, left 0.8s; /* For Safari 3.1 to 6.0 */
 	transition: width 0.25s, left 0.8s;
+}
+
+.music-player{
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	border: 2px solid black;
+	cursor:pointer;
+	padding:4px;
+	margin:2px;
+	z-index: 1;
+}
+
+.music-player:hover{
+	color:green;
+	border:solid green;
+}
+.music-player i{
+	font-size:24px;
+}
+.music-player div{
+	display:inline-block;
+	font-size:20px;
 }

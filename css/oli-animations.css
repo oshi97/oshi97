@@ -6,21 +6,17 @@
 @keyframes appear {
   from {
     opacity: 0;
+    /*animation-timing-function: ease-in;*/
   }
-  4/*5%{
-    opacity:.55;
-  }
-  65%{
-    opacity:.90;
-  }*/
   to {
     opacity: 1;
+    /*animation-timing-function: ease-in;*/
   }
 }
 
 .appear {
   animation-name: appear;
-  animation-duration: 0.65s;
+  animation-duration: 0.55s;
 }
 
 @keyframes inFromLeft {

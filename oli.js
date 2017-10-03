@@ -1,6 +1,11 @@
 (function(angular){
 	'use strict' //ECMA5 strict mode
 	var baseUrl = '/';
+
+	String.prototype.capitalize = function() {
+		return this.charAt(0).toUpperCase() + this.slice(1);
+	}
+
 	var oli = angular.module('Oli',['ngRoute']);
 	oli.config(function($routeProvider, $locationProvider, $httpProvider){
 
@@ -11,7 +16,9 @@
 			templateUrl: 'views/homepage/homepage.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope, $log){
-				$rootScope.pageTitle = ' - Home'
+				var ctrl = this;
+				$rootScope.pageTitle = ' - Home';
+				ctrl.pageClass = "appear";
 			}
 		})
 		.when(baseUrl + "about", {
@@ -20,6 +27,7 @@
 			controller: function($rootScope, $log){
 				var ctrl = this;
 				$rootScope.pageTitle = ' - About';
+				ctrl.pageClass = "appear";
 				// ctrl.imageDirectory = "/views/about/images"
 			}
 		})
@@ -29,6 +37,7 @@
 			controller: function($rootScope){
 				var ctrl= this;
 				$rootScope.pageTitle = ' - Projects';
+				ctrl.pageClass = "appear";
 
 			}
 		})
@@ -38,6 +47,7 @@
 			controller: function($rootScope){
 				var ctrl= this;
 				$rootScope.pageTitle = ' - I\'m Crazy!';
+				ctrl.pageClass = "appear";
 
 			}
 		})
@@ -46,9 +56,10 @@
 				return baseUrl + 'views/about/' + url.what + "/" + url.what + '.html';
 			},
 			controllerAs: 'ctrl',
-			controller: function($rootScope, $location){
+			controller: function($rootScope, $routeParams){
 				var ctrl=this;
-				$rootScope.pageTitle = ' - About';
+				$rootScope.pageTitle = ' - ' + $routeParams.what.capitalize();
+				ctrl.pageClass = "appear";
 			}
 		})
 		.when(baseUrl + "projects/:which", {
@@ -56,9 +67,10 @@
 				return baseUrl + 'views/projects/' + url.which + "/" + url.which + '.html';
 			},
 			controllerAs: 'ctrl',
-			controller: function($rootScope){
+			controller: function($rootScope, $routeParams){
 				var ctrl=this;
-				$rootScope.pageTitle = ' - Projects';
+				$rootScope.pageTitle = ' - ' + $routeParams.which;
+				ctrl.pageClass = "appear";
 			}
 		})
 		.otherwise({ 
@@ -70,34 +82,35 @@
 		//This would be better as a component, but that will come later
 		var musicVolume = 1.0
 		$rootScope.isPlaying = false;
-		var homeMusic = new Howl({
-			src: ['/music/Newbie Melody (Old Music).mp3'],
-			volume: musicVolume,
-			loop: true,
-			html5: true,
-			autoplay: $rootScope.isPlaying,
-		});
+		var homeMusic;
 
-		$rootScope.pauseMusic = function(){
-			if(homeMusic.playing()){
+		$rootScope.toggleMusic = function(){
+			if(!homeMusic){
+				console.log('loading music now');
+				homeMusic = new Howl({
+					src: ['/music/Newbie Melody (Old Music).mp3'],
+					volume: musicVolume,
+					loop: true,
+					html5: true,
+					autoplay: $rootScope.isPlaying,
+				});
+			}
+			if($rootScope.isPlaying){
 				// homeMusic.once('fade', homeMusic.pause());
 				// the above should work but cuts off nastily, probably some bug
-				homeMusic.fade(musicVolume,0.0,0.5);
+				homeMusic.fade(musicVolume,0.0,0.4);
 				window.setTimeout(function(){homeMusic.pause();},300);
 				$rootScope.isPlaying = false
 			}
-		};
-
-		$rootScope.playMusic = function(){
-			if(!homeMusic.playing()){
+			else {
 				homeMusic.once('fade', homeMusic.play());
-				homeMusic.fade(0.0,musicVolume,0.5);
+				homeMusic.fade(0.0,musicVolume,0.4);
 				// homeMusic.play();
 				$rootScope.isPlaying = true;
 			}
-		};
-		var currLink = $('#current-link-box');
-		$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
+		}
+
+		function moveBox(event, next, current) {
 			var dist,width;
 			$(".main-nav-item").each(function(){
 				if(window.location.href === this.href){
@@ -110,7 +123,10 @@
 			}
 			currLink.css('left',"+="+dist.toString());
 			currLink.css('width',width.toString()+"px");
-		});
+		}
+
+		var currLink = $('#current-link-box');
+		$rootScope.$on("$routeChangeSuccess", moveBox);
 
 	});
 }(window.angular))

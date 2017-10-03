@@ -27,23 +27,21 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 	<!-- Scrollmagic -->
-<!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js" integrity="sha256-xaGvP1a0KUJS18dRRK6dCsGY6SKZUrfhHLsx8X8TgSM=" crossorigin="anonymous"></script> -->
+	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js" integrity="sha256-xaGvP1a0KUJS18dRRK6dCsGY6SKZUrfhHLsx8X8TgSM=" crossorigin="anonymous"></script> -->
 
 	<!-- HowlerJS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.core.min.js"></script>
 
 	<!-- angularjs -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
 	<!-- ngroute -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
-
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+	
 	<!-- freezeframe js -->
 	<!-- <script src="/dependencies/freezeframe/js/freezeframe.pkgd.js"></script>js -->
 	<!-- <link rel="stylesheet" href="/dependencies/freezeframe/css/freezeframe_styles.min.css"> -->
 
-	<!-- animate.css, not used anymore but still edited/borrowed ideas from-->
-	<!-- <link rel="stylesheet" href="/css/animate.css"> -->
 	<!-- my css -->
 	<link rel="stylesheet" href="/css/oli-animations.css">
 	<link rel="stylesheet" href="/css/flexbox.css">
@@ -70,10 +68,6 @@
 			<i class="fa fa-home navbar-icon" aria-hidden="true"></i>
 			<span>Home</span>
 		</a>
-		<i ng-show="!isPlaying" class="fa fa-play-circle-o fa-2x green-hover" aria-hidden="true" ng-click="playMusic()"></i>
-		<i ng-show="isPlaying" class="fa fa-pause fa-2x green-hover" aria-hidden="true" ng-click="pauseMusic()"></i>
-		<span style="padding-left: 10px;">music</span>
-		<!-- <i class="fa fa-long-arrow-up fa-3x scrollToTop green-hover" aria-hidden="true"></i> -->
 		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
 			<ul class="navbar-nav">
 				<li><a class="nav-item nav-link main-nav-item" href="/about">About</a></li>
@@ -82,44 +76,52 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="container-fluid clearfix ng-view">
-		<div ng-view>
+	<div class="container-fluid clearfix my-ng-view">
+		<div class="animated {{ctrl.pageClass}}" ng-view>
 		</div>	
 	</div>
-
+	<div class="music-player" ng-click="toggleMusic()">
+		<i ng-show="!isPlaying" class="fa fa-play-circle-o" aria-hidden="true"></i>
+		<i ng-show="isPlaying" class="fa fa-pause" aria-hidden="true"></i>
+		<div>music</div>
+	</div>
 	<script>
-		$(window).on('load',function() {
+		var currLink = $('#current-link-box');
+		function moveBox(event, next, current) {
+			var dist,width;
+			$(".main-nav-item").each(function(){
+				if(window.location.href === this.href){
+					dist = $(this).offset().left - currLink.offset().left - 3;
+					width = parseInt($(this).css('width'))+6;
+				}
+			});
+			if(!dist){
+				return;
+			}
+			currLink.css('left',"+="+dist.toString());
+			currLink.css('width',width.toString()+"px");
+		}
+		function createBox() {
 			var width,left,height;
 			$(".main-nav-item").each(function() {
 				if(window.location.href.split('/')[3]===this.href.split('/')[3]){
 					width = parseInt($(this).css('width'))+6;
-					// height = parseInt($(this).css('height'))-6;
 					left = $(this).offset().left-3;
 				}
 			});
 			//toString() not necessary but clearer this way
-			var currLink = $('#current-link-box');
 			currLink.css('width',width.toString()+"px");
 			currLink.css('height',"54px");
 			currLink.css('left',left);
 			currLink.css('border','solid black');
+		}
+		$(window).on('load', createBox);
+		$(window).on('resize',function(){
+			clearTimeout($.data(this, 'resizeTimer'));
+			$.data(this, 'resizeTimer', setTimeout(function() {
+				moveBox();
+			}, 200));
 		});
-
-		// $(window).scroll(function() {
-		// 	if ($(document).scrollTop() > 400) {
-		// 		$('.main-nav').addClass('shrink');
-		// 		$('.main-nav-item').addClass('shrink');
-		// 	} else {
-		// 		$('.main-nav').removeClass('shrink');
-		// 		$('.main-nav-item').removeClass('shrink');
-		// 	}
-		// });
-		// $('.scrollToTop').click(function(){
-		// 	if($(document).scrollTop() > 50 ){
-		// 		$("html, body").animate({ scrollTop: 0 }, 300);
-		// 		return false;
-		// 	}
-		// });
 	</script>
 	<!-- main.js -->
 	<script src="oli.js"></script>
