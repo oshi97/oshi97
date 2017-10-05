@@ -27,6 +27,7 @@
 
 .main-nav{
 	max-height:55px;
+	background-color: rgb(240,235,230);
 }
 .main-nav.shrink {
 	max-height: 28px;
@@ -35,10 +36,11 @@
 	font-size:12px;
 }
 
-.main-nav{
+#override-bootstrap .main-nav{
 	background-color:#ccc;
 	-webkit-transition: all .2s ease;
 	transition: all .2s ease;
+	background-color: rgb(240,235,230);
 }
 
 #current-link-box{
@@ -57,7 +59,7 @@
 .music-player{
 	position:fixed;
 	bottom:0px;
-	right:10px;
+	right:3px;
 	border: 2px solid black;
 	cursor:pointer;
 	padding:4px;
