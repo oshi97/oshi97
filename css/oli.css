@@ -2,7 +2,7 @@
 	/*background-color: #eee7d4;*/
 	background-color:  #FFFFFF;
 	font-family:system-ui;
-	overflow-y:auto;
+	overflow-y:scroll;
 }
 
 .my-ng-view{
@@ -57,7 +57,7 @@
 .music-player{
 	position:fixed;
 	bottom:0px;
-	right:0px;
+	right:10px;
 	border: 2px solid black;
 	cursor:pointer;
 	padding:4px;
