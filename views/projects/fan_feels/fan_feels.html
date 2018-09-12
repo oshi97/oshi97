@@ -1,0 +1,29 @@
+<div>
+	This was a project created by me, Chris Yeung, Dylan Nguyen, and Brady Zhang during Hoya Hacks January 2018.
+	<br><br>
+	Our idea was to scrape subreddit data for the top 6 English Premier League soccer teams over time, use natural language
+	processing to determine the average sentiment per week, and then go from there
+	<br><br>
+	It was the first Hackathon any of us had went to, so we were pretty excited.
+	Brady was also the only person who knew Django, which we had decided on as our web framework. Then Brady got
+	sick and couldn't really work on things so... yeah.
+	<br><br>
+	At first we wanted the data to be scraped and analyzed on the fly because, that would be pretty cool and we could do
+	virtually any subreddit then. It turns out this kind of thing can take a long time, even if you take shortcuts like only 
+	analyzing the top 20 comments, sampling less posts per week etc. We also ran into usage limits with PRAW we weren't aware of
+	which also stalled our progress since we thought something was wrong somewhere with our code, so we kept running things again, continually making sure we were at the PRAW api limits. Oops.
+	<br><br>
+	We pretty much ended up using Django to show one webpage, which displayed pre-scraped data from reddit which we stored into a csv. We stored it in a csv in a vain effort to make it play nicer with NVD3. Naturally it didn't.
+	<br><br>
+	All in all I felt pretty meh about our project back then but looking back now I'm very happy with how things went. It was really fun, despite almost nothing going as planned.
+</div>
+
+<img src="/images/fan_feels.jpg" alt="Our atrocious data with dubious, but not non-existent, correlation.">
+
+<div>
+	Brady officially owns the repo at <a ng-href="https://github.com/hungryeung/HackUVA" target="_blank">https://github.com/hungryeung/HackUVA</a> 
+</div>
+<br>
+<div>
+	We made a devpost too. <a ng-href="https://devpost.com/software/english-premier-league-reddit-sentiment-visualization" target="_blank">https://devpost.com/software/limitless-piano</a> Unlike the limitless piano devpost, this one is more substantive and even has a nice graphic.
+</div>

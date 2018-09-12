@@ -55,7 +55,7 @@
 	</script>
 </head>
 <body id="override-bootstrap">
-	<nav class="navbar navbar-toggleable navbar-light fixed-top main-nav">
+	<nav class="navbar navbar-toggleable navbar-light fixed-top main-nav" style="margin">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>	
@@ -64,18 +64,19 @@
 			<i class="fa fa-home navbar-icon" aria-hidden="true"></i>
 			<span>Home</span>
 		</a>
-		<div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+		<div class="collapse navbar-collapse" id="mainNavbar">
 			<ul class="navbar-nav">
 				<li><a class="nav-item nav-link main-nav-item" href="/about">About</a></li>
 				<li><a class="nav-item nav-link main-nav-item" href="/projects">Projects</a></li>
-				<li><a class="nav-item nav-link main-nav-item" href="/blog">Blog</a></li>
+				<!-- <li><a class="nav-item nav-link main-nav-item" href="/blog">Blog</a></li> -->
 			</ul>
 		</div>
 	</nav>
-	<div class="container-fluid clearfix my-ng-view">
-		<div class="animated {{ctrl.pageClass}}" ng-view>
+	<div class="container clearfix my-ng-view">
+		<div class="animated {{ctrl.pageClass}}" ng-view style="margin-bottom: 15px;">
 		</div>	
 	</div>
+
 	<div class="music-player" ng-click="toggleMusic()">
 		<i ng-show="!isPlaying" class="fa fa-play-circle-o" aria-hidden="true"></i>
 		<i ng-show="isPlaying" class="fa fa-pause" aria-hidden="true"></i>
