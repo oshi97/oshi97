@@ -89,7 +89,7 @@ gtag('config', 'UA-93236516-3');
 		var homeMusic;
 
 		$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
-			$log.log(document.location.href);
+			// $log.log(document.location.href);
 			gtag('config', 'UA-93236516-3', {'page_path': document.location});
 		});
 
