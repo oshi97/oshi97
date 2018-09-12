@@ -1,3 +1,23 @@
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
+
+ga('create','UA-93236516-3', 'auto');
+ga('send', 'pageview');
+
+function sendGAPageChange(url) {
+	ga('set', 'page', url);
+	ga('send', 'pageview');
+}
+
 (function(angular){
 	'use strict' //ECMA5 strict mode
 	var baseUrl = '/';
@@ -16,6 +36,8 @@
 			templateUrl: 'views/homepage/homepage.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope, $log){
+				sendGAPageChange(baseUrl);
+
 				var ctrl = this;
 				$rootScope.pageTitle = ' - Home';
 				ctrl.pageClass = "appear";
@@ -25,6 +47,8 @@
 			templateUrl: baseUrl + 'views/about/about.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope, $log){
+				sendGAPageChange(baseUrl + "about");
+
 				var ctrl = this;
 				$rootScope.pageTitle = ' - About';
 				ctrl.pageClass = "appear";
@@ -35,6 +59,8 @@
 			templateUrl: baseUrl + 'views/projects/projects.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope){
+				sendGAPageChange(baseUrl + "projects");
+
 				var ctrl= this;
 				$rootScope.pageTitle = ' - Projects';
 				ctrl.pageClass = "appear";
@@ -45,6 +71,8 @@
 			templateUrl: baseUrl + 'views/blog/blog.html',
 			controllerAs: 'ctrl',
 			controller: function($rootScope){
+				sendGAPageChange(baseUrl + "blog");
+
 				var ctrl= this;
 				$rootScope.pageTitle = ' - I\'m Crazy!';
 				ctrl.pageClass = "appear";
@@ -53,6 +81,7 @@
 		})
 		.when(baseUrl + "about/:what", {
 			templateUrl: function(url){
+				sendGAPageChange(baseUrl + 'views/about/' + url.what + "/" + url.what + '.html');
 				return baseUrl + 'views/about/' + url.what + "/" + url.what + '.html';
 			},
 			controllerAs: 'ctrl',
@@ -64,6 +93,7 @@
 		})
 		.when(baseUrl + "projects/:which", {
 			templateUrl: function(url){
+				sendGAPageChange(baseUrl + 'views/projects/' + url.which + "/" + url.which + '.html');
 				return baseUrl + 'views/projects/' + url.which + "/" + url.which + '.html';
 			},
 			controllerAs: 'ctrl',
