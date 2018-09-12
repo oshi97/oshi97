@@ -1,9 +1,3 @@
-//gtag.js google analytics (universal analytics)
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments)};
-gtag('js', new Date());
-gtag('config', 'UA-93236516-3');
-
 (function(angular){
 	'use strict' //ECMA5 strict mode
 	var baseUrl = '/';
