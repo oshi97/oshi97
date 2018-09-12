@@ -84,7 +84,7 @@
 
 		$rootScope.$on("$routeChangeSuccess", function(event, next, current) {
 			// $log.log(document.location.href);
-			gtag('config', 'UA-93236516-3', {'page_path': document.location});
+			gtag('config', 'UA-93236516-3', {'page_path': document.location.href});
 		});
 
 		$rootScope.toggleMusic = function(){
